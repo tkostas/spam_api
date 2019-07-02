@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Spam API</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container">
+        <a href="{{ url_for('site.home') }}" class="navbar-brand">Spam API</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarCollapse" aria-controls="navbarCollapse"
+        aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="{{ url_for('site.home') }}" class="nav-link" id="home-navlink">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url_for('site.info') }}" class="nav-link" id="info-navlink">Info</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  </header>
+
+  <!-- Main content -->
+  <main role="main" class="container">
+    {% block main_container %}
+    {% endblock %}
+  </main>
+
+  <!-- <footer class="card-footer bg-light  footer-font-style text-muted footer-position"> -->
+  <footer class="bg-light p-4 text-muted fixed-bottom text-center">
+    <div class="container">
+      <span class="text-muted">. . .</span>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
+<!-- https://stackoverflow.com/questions/11178426/how-can-i-pass-data-from-flask-to-javascript-in-a-template -->

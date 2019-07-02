@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <script type="text/javascript" src="../static/js/site.js" defer></script>
+{% endblock %}
+
+
+{% block main_container %}
+<h1 class="mt-5 pt-3">Check if the message is spam or ham</h1>
+<p>Type some text and check if the message is spam or not.</p>
+<div class="row">
+        <form class="col btn-group-vertical" method="POST" action="{{ url_for('site.home') }}">
+            {{ form.csrf_token }}
+
+            {% with errors = get_flashed_messages(category_filter=["error"]) %}
+                {% for error in errors %}
+                    <div class="alert alert-warning" style="width:100%;">{{ error }}</div>
+                {% endfor %}
+            {% endwith %}
+
+            {{ form.text_area(class_="form-control")}}
+            {{ form.submit(class_="btn btn-block p-5 btn-light") }}
+        </form>
+
+
+<!--        <textarea id="msg-area" class="form-control" placeholder="Type your message here..." rows="10"></textarea>-->
+<!--        <button type="button" class="btn btn-block p-5 btn-light"-->
+<!--        id="msg-btn">Type your message</button>-->
+</div>
+
+<script type="text/javascript">
+    var msg_type = "{{ msg_type }}";
+</script>
+{% endblock %}
+
